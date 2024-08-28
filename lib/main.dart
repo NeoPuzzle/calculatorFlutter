@@ -1,3 +1,4 @@
+import 'package:calculator/widgets/CalcButton.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,6 +15,9 @@ class CalcApp extends StatefulWidget {
 }
 
 class _CalcAppState extends State<CalcApp> {
+  void allClear(String text){
+
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,13 +36,38 @@ class _CalcAppState extends State<CalcApp> {
                   padding: const EdgeInsets.only(right: 12),
                   child: Text("Historial",
                   style: GoogleFonts.rubik
-                  (textStyle: const TextStyle(fontSize: 24, color: Color(0xFF545F61))),),
+                  (textStyle: const TextStyle(fontSize: 24, color: Color(0xFF545F61))),
+                  ),
                 ),
-              )
+              ),
+              Container(
+                alignment: const Alignment(1.0, 1.0),
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: 
+                    Text("+",
+                    style: GoogleFonts.rubik(
+                      textStyle: const TextStyle(
+                        fontSize: 48,
+                        color: Colors.white
+                      ),
+                    ),),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Calcbutton(
+                      text: "AC",
+                      callback: allClear,
+                      textSize: 20,
+                    )
+                  ],
+                )
             ],
           )
         ),
-      )
+      )  
     );
   }
 }
